@@ -1,3 +1,6 @@
+import cardStore from "../store/cardStore";
+import dragAndDrop from "./dragAndDrop";
+
 class FormUI {
   constructor() {
     this.form = null;
@@ -14,6 +17,32 @@ class FormUI {
     this.form.classList.toggle("active");
   }
 
+  pushCardInArr() {
+    if (this.container.id === "taskC") {
+      cardStore.addArrTask(
+        formUI.transformCardInObj(this.title.value, this.body.value)
+      );
+    }
+    if (this.container.id === "progressC") {
+      cardStore.addArrProgress(
+        formUI.transformCardInObj(this.title.value, this.body.value)
+      );
+    }
+    if (this.container.id === "completeC") {
+      cardStore.addArrComplete(
+        formUI.transformCardInObj(this.title.value, this.body.value)
+      );
+    }
+  }
+
+  transformCardInObj(title, body) {
+    return {
+      _id: `${Math.random()}`,
+      title: title,
+      body: body,
+    };
+  }
+
   showForm(name) {
     this.form = document.forms[`${name}`];
     this.form.classList.toggle("active");
@@ -22,6 +51,8 @@ class FormUI {
   renderTask() {
     let fragment = FormUI.templateTask(this.title.value, this.body.value);
     this.container.insertAdjacentHTML("beforeend", fragment);
+    dragAndDrop();
+    formUI.pushCardInArr();
   }
 
   static templateTask(title, body) {

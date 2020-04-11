@@ -1,7 +1,15 @@
-export const dragAndDrop = () => {
+function dragAndDrop() {
+  const container = document.querySelectorAll(".js-cell");
   const cards = document.querySelectorAll(".js-card");
-  const cells = document.querySelectorAll(".js-cell");
-  let card = 0;
+  let card;
+
+  // events
+  container.forEach((cell) => {
+    cell.addEventListener("dragover", dragOver);
+    cell.addEventListener("dragenter", dragEnter);
+    cell.addEventListener("dragleave", dragLeave);
+    cell.addEventListener("drop", dragDrop);
+  });
 
   cards.forEach((card) => {
     card.addEventListener("dragstart", dragStart);
@@ -17,10 +25,12 @@ export const dragAndDrop = () => {
 
   function dragEnd() {
     this.classList.remove("hide");
+    card = 0;
   }
 
   function dragOver(e) {
     e.preventDefault();
+    this.style = "min-height: 250px";
   }
 
   function dragEnter(e) {
@@ -30,18 +40,26 @@ export const dragAndDrop = () => {
 
   function dragLeave() {
     this.classList.remove("hovered");
+    this.style = "height: auto";
   }
 
   function dragDrop() {
-    console.log(card);
+    if (this.id === "progressC") {
+      card.classList.remove("green");
+      card.classList.add("red");
+    }
+    if (this.id === "completeC") {
+      card.classList.remove("red");
+      card.classList.add("green");
+    }
+    if (this.id === "taskC") {
+      card.classList.remove("green");
+      card.classList.remove("red");
+    }
+
     this.appendChild(card);
     this.classList.remove("hovered");
   }
+}
 
-  cells.forEach((cell) => {
-    cell.addEventListener("dragover", dragOver);
-    cell.addEventListener("dragenter", dragEnter);
-    cell.addEventListener("dragleave", dragLeave);
-    cell.addEventListener("drop", dragDrop);
-  });
-};
+export default dragAndDrop;

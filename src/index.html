@@ -5,12 +5,12 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>Document</title>
+      <title>Tasker</title>
     </head>
   </head>
   <body>
     <header class="header">
-      <div class="header-title">Trello</div>
+      <div class="header-title">Tasker</div>
       <!-- /.header-title -->
     </header>
     <!-- /.header -->
@@ -21,7 +21,8 @@
           <li class="list-caption">Задача</li>
           <li class="list-caption">В процессе</li>
           <li class="list-caption">Готово</li>
-          <li class="list-cell js-cell">
+
+          <li class="list-cell js-cell" id="taskC">
             <button class="add-task btn js-task">Добавить задачу</button>
             <form name="taskForm" class="form" id="task">
               <input
@@ -38,25 +39,9 @@
               />
               <button type="submit" class="form-btn">Создать задачу</button>
             </form>
-            <!-- <div class="list-card js-card" draggable="true">
-              <div class="list-card__title">Работа</div>
-              <div class="list-card__info">task description</div>
-            </div> -->
-            <!-- /.list__card -->
-
-            <!-- <div class="list-card js-card" draggable="true">
-              <div class="list-card__title">Уборка</div>
-              <div class="list-card__info">task description</div>
-            </div> -->
-            <!-- /.list__card -->
-
-            <!-- <div class="list-card js-card" draggable="true">
-              <div class="list-card__title">Учеба</div>
-              <div class="list-card__info">task description</div>
-            </div> -->
-            <!-- /.list__card -->
           </li>
-          <li class="list-cell js-cell">
+
+          <li class="list-cell js-cell" id="progressC">
             <button class="add-task btn js-progress">Добавить задачу</button>
 
             <form name="progressForm" class="form" id="dev">
@@ -76,7 +61,7 @@
             </form>
           </li>
 
-          <li class="list-cell js-cell">
+          <li class="list-cell js-cell" id="completeC">
             <button class="add-task btn js-complete">Добавить задачу</button>
 
             <form name="activeForm" class="form" id="complete">
