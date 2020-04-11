@@ -49,7 +49,18 @@ class FormUI {
   }
 
   renderTask() {
-    let fragment = FormUI.templateTask(this.title.value, this.body.value);
+    const title = this.title.value;
+    const body = this.body.value;
+    if (!title) {
+      alert("Введите название задачи!");
+      return;
+    }
+    if (!body) {
+      alert("Введите описание задачи!");
+      return;
+    }
+
+    let fragment = FormUI.templateTask(title, body);
     this.container.insertAdjacentHTML("beforeend", fragment);
     dragAndDrop();
     formUI.pushCardInArr();

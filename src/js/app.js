@@ -1,5 +1,4 @@
 import "../css/style.css";
-import dragAndDrop from "./views/dragAndDrop";
 import formUI from "./views/form";
 
 const container = document.querySelectorAll(".js-cell");
