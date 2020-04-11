@@ -1,0 +1,179 @@
+.form {
+  width: 100%;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  height: 0px;
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-title {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+.form-body {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  border-top: 1px solid #eeeeee;
+  outline: none;
+  padding-left: 8px;
+}
+
+.form-btn {
+  outline: none;
+  border: none;
+  padding: 10px;
+  transition: .2s;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background: #bdbdbd;
+}
+
+.active {
+  opacity: 1;
+  height: 180px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 82px;
+  font-family: Roboto;
+  font-size: 36px;
+  background: #70BDE9;
+}
+
+.header-title {
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 100px 0;
+  align-items: flex-start;
+}
+
+.list-caption {
+  text-align: center;
+  width: calc( 33% - 40px);
+  margin: 0 20px;
+  list-style-type: none;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.list-cell {
+  width: calc( 33% - 40px);
+  margin: 0 20px;
+  height: auto;
+  list-style-type: none;
+  box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.2);
+  background: #f0f2f5;
+}
+
+.list-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  min-height: 180px;
+  cursor: pointer;
+  overflow: hidden;
+  background: #333;
+  margin: 10px;
+}
+
+.list-card__title {
+  font-weight: bold;
+  padding: 12px 20px;
+  background-color: #0747a6;
+  color: #fff;
+}
+
+.list-card__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 12px 20px;
+  color: white;
+}
+
+.add-task {
+  width: 100%;
+  outline: none;
+  border: none;
+  letter-spacing: normal;
+  padding: 20px;
+  transition: .2s;
+  font-family: Montserrat;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.add-task:hover {
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: tomato;
+}
+
+*::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  background: url(img/fon1.jpg) center no-repeat;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.hovered {
+  background-color: #d1d8e2;
+}
