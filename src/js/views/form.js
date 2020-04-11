@@ -51,6 +51,7 @@ class FormUI {
   renderTask() {
     const title = this.title.value;
     const body = this.body.value;
+
     if (!title) {
       alert("Введите название задачи!");
       return;
@@ -64,6 +65,7 @@ class FormUI {
     this.container.insertAdjacentHTML("beforeend", fragment);
     dragAndDrop();
     formUI.pushCardInArr();
+    this.form.reset();
   }
 
   static templateTask(title, body) {
