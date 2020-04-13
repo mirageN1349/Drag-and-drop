@@ -1,4 +1,4 @@
-import "../css/style.css";
+import "@sass/style.sass";
 import formUI from "./views/form";
 
 const container = document.querySelectorAll(".js-cell");
@@ -31,4 +31,3 @@ container.forEach((el) => {
   });
 });
 // Heandlers
-// dragAndDrop();

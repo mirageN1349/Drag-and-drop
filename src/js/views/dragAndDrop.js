@@ -35,7 +35,7 @@ function dragAndDrop() {
 
   function dragEnter(e) {
     e.preventDefault();
-    this.classList.add("hovered");
+    // this.classList.add("hovered");
   }
 
   function dragLeave() {
