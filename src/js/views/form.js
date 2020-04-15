@@ -54,10 +54,12 @@ class FormUI {
 
     if (!title) {
       alert("Введите название задачи!");
+      this.form.classList.toggle("active");
       return;
     }
     if (!body) {
       alert("Введите описание задачи!");
+      this.form.classList.toggle("active");
       return;
     }
 
@@ -73,6 +75,7 @@ class FormUI {
     <div class="list-card js-card" draggable="true">
     <div class="list-card__title">${title}</div>
     <div class="list-card__info">${body}</div>
+    <button class="list-card__button">Отложить</button>
   </div>
     `;
   }

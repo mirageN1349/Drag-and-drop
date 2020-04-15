@@ -1,6 +1,9 @@
 function dragAndDrop() {
   const container = document.querySelectorAll(".js-cell");
   const cards = document.querySelectorAll(".js-card");
+  const btnTask = document.querySelector(".js-task");
+  const btnProgress = document.querySelector(".js-progress");
+  const btnComplete = document.querySelector(".js-complete");
   let card;
 
   // events
@@ -39,7 +42,9 @@ function dragAndDrop() {
   }
 
   function dragLeave() {
-    this.classList.remove("hovered");
+    // if (this.id === "taskC") {
+    //   btnTask.classList.remove("active-btn");
+    // }
     this.style = "height: auto";
   }
 
