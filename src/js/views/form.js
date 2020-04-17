@@ -7,6 +7,9 @@ class FormUI {
     this.title = null;
     this.body = null;
     this.container = null;
+    this.card = null;
+    this.btn = null;
+    this.id = null;
   }
 
   init(name) {
@@ -22,22 +25,25 @@ class FormUI {
       cardStore.addArrTask(
         formUI.transformCardInObj(this.title.value, this.body.value)
       );
+      return;
     }
     if (this.container.id === "progressC") {
       cardStore.addArrProgress(
         formUI.transformCardInObj(this.title.value, this.body.value)
       );
+      return;
     }
     if (this.container.id === "completeC") {
       cardStore.addArrComplete(
         formUI.transformCardInObj(this.title.value, this.body.value)
       );
+      return;
     }
   }
 
   transformCardInObj(title, body) {
     return {
-      _id: `${Math.random()}`,
+      _id: this.id,
       title: title,
       body: body,
     };
@@ -63,19 +69,27 @@ class FormUI {
       return;
     }
 
-    let fragment = FormUI.templateTask(title, body);
+    const fragment = formUI.templateTask(title, body);
+
     this.container.insertAdjacentHTML("beforeend", fragment);
-    dragAndDrop();
     formUI.pushCardInArr();
+    dragAndDrop();
+    this.btn = document.querySelector(".list-card__button");
     this.form.reset();
   }
 
-  static templateTask(title, body) {
+  getBtn() {
+    return this.btn;
+  }
+
+  templateTask(title, body) {
+    const id = Math.random();
+    this.id = id;
     return `
-    <div class="list-card js-card" draggable="true">
+    <div class="list-card js-card" draggable="true" >
     <div class="list-card__title">${title}</div>
     <div class="list-card__info">${body}</div>
-    <button class="list-card__button">Отложить</button>
+    <button class="list-card__button btnF" data-card-id="${this.id}">Отложить</button>
   </div>
     `;
   }

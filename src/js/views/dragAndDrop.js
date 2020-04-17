@@ -1,9 +1,9 @@
+import favorite from "./favorite";
+
 function dragAndDrop() {
   const container = document.querySelectorAll(".js-cell");
   const cards = document.querySelectorAll(".js-card");
-  const btnTask = document.querySelector(".js-task");
-  const btnProgress = document.querySelector(".js-progress");
-  const btnComplete = document.querySelector(".js-complete");
+  const counter = document.querySelector(".header-favorites__counter");
   let card;
 
   // events
@@ -38,14 +38,16 @@ function dragAndDrop() {
 
   function dragEnter(e) {
     e.preventDefault();
-    // this.classList.add("hovered");
   }
 
   function dragLeave() {
-    // if (this.id === "taskC") {
-    //   btnTask.classList.remove("active-btn");
-    // }
     this.style = "height: auto";
+    if (this.id === "favoriteC") {
+      counter.textContent = JSON.parse(localStorage.getItem("card")).length;
+      const id = card.parents.getAttribute("data-card-id");
+      console.log(id);
+      favorite.deleteCardInObj(id);
+    }
   }
 
   function dragDrop() {
@@ -63,7 +65,6 @@ function dragAndDrop() {
     }
 
     this.appendChild(card);
-    this.classList.remove("hovered");
   }
 }
 

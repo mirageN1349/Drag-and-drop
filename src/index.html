@@ -10,13 +10,34 @@
   </head>
   <body>
     <header class="header">
-      <div class="header-title">Tasker</div>
+      <div class="header-block">
+        <div class="header-logo">
+          <img src="../src/img/fon3.svg" alt="" />
+        </div>
+        <div class="header-title">Tasker</div>
+      </div>
+
       <!-- /.header-title -->
+      <button class="header-favorites">
+        <div class="header-favorites__text">Отложенные:</div>
+        <!-- /.header-favorites__text -->
+        <div class="header-favorites__counter">0</div>
+        <!-- /.header-favorites_counter -->
+      </button>
+      <!-- /.header-favorites -->
     </header>
     <!-- /.header -->
 
     <div class="hero">
       <div class="wrapper">
+        <section class="favorites js-cell" id="favoriteC">
+          <!-- <div class="favorites-card js-card" draggable="true">
+            <div class="favorites-card__title">${title}</div>
+            <div class="favorites-card__info">${body}</div>
+            <button class="favorites-card__button">Отложить</button>
+          </div> -->
+        </section>
+
         <ul class="list">
           <li class="list-caption">Задача</li>
           <li class="list-caption">В процессе</li>

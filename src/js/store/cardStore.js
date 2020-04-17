@@ -1,29 +1,29 @@
 class CardStore {
   constructor() {
-    this.arrTask = [];
-    this.arrProgress = [];
-    this.arrComplete = [];
+    this._arrTask = [];
+    this._arrProgress = [];
+    this._arrComplete = [];
   }
   addArrTask(card) {
-    this.arrTask.push(card);
+    this._arrTask.push(card);
   }
   addArrProgress(card) {
-    this.arrProgress.push(card);
+    this._arrProgress.push(card);
   }
   addArrComplete(card) {
-    this.arrComplete.push(card);
+    this._arrComplete.push(card);
   }
 
-  getArrTask() {
-    return this.arrTask;
+  get arrTask() {
+    return this._arrTask;
   }
 
-  getArrProgress() {
-    return this.arrProgress;
+  get arrProgress() {
+    return this._arrProgress;
   }
 
-  getArrComplete() {
-    return this.arrComplete;
+  get arrComplete() {
+    return this._arrComplete;
   }
 }
 

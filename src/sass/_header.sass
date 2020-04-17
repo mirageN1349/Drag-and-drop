@@ -1,7 +1,7 @@
 .header
   display: flex
   align-items: center
-  justify-content: center
+  justify-content: space-between
 
   height: 82px
   
@@ -9,6 +9,41 @@
   font-size: 36px
   
   background: #70BDE9
+  &-block
+    display: flex
+    margin-left: 100px
+  &-logo
+    z-index: 10000
+  img
+    width: 35px
+    height: 35px
+    margin-top: 3px
   &-title
     margin: 0
     padding: 0
+    margin-left: 10px
+  &-favorites 
+    display: flex
+    font-size: 18px
+    margin-right: 100px
+    background: #34393f
+    color: #fff
+    height: 45px
+    width: 170px
+    border-radius: 10px
+    align-items: center
+    justify-content: center
+    border: none
+    outline: none
+    cursor: pointer
+    &__text
+      
+      margin-right: 10px
+    &__counter
+      text-align: center
+      background: #70BDE9
+      width: 20px
+      height: 25px
+      border-radius: 5px
+      color: tomato
+      font-weight: bold
