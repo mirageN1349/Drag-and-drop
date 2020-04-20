@@ -1,5 +1,6 @@
 import cardStore from "../store/cardStore";
 import dragAndDrop from "./dragAndDrop";
+import favorite from "./favorite";
 
 class FormUI {
   constructor() {
@@ -23,27 +24,35 @@ class FormUI {
   pushCardInArr() {
     if (this.container.id === "taskC") {
       cardStore.addArrTask(
-        formUI.transformCardInObj(this.title.value, this.body.value)
+        formUI.transformCardInObj(this.title.value, this.body.value, `task-`)
       );
       return;
     }
     if (this.container.id === "progressC") {
       cardStore.addArrProgress(
-        formUI.transformCardInObj(this.title.value, this.body.value)
+        formUI.transformCardInObj(
+          this.title.value,
+          this.body.value,
+          `progress-`
+        )
       );
       return;
     }
     if (this.container.id === "completeC") {
       cardStore.addArrComplete(
-        formUI.transformCardInObj(this.title.value, this.body.value)
+        formUI.transformCardInObj(
+          this.title.value,
+          this.body.value,
+          `complete-`
+        )
       );
       return;
     }
   }
 
-  transformCardInObj(title, body) {
+  transformCardInObj(title, body, id) {
     return {
-      _id: this.id,
+      _id: id + this.id,
       title: title,
       body: body,
     };
@@ -76,6 +85,12 @@ class FormUI {
     dragAndDrop();
     this.btn = document.querySelector(".list-card__button");
     this.form.reset();
+
+    console.log("task:", cardStore.arrTask);
+    console.log("progress:", cardStore.arrProgress);
+    console.log("complete:", cardStore.arrComplete);
+    console.log("favorite:", JSON.parse(localStorage.getItem("arrCard")));
+    console.log(" ");
   }
 
   getBtn() {
@@ -86,7 +101,7 @@ class FormUI {
     const id = Math.random();
     this.id = id;
     return `
-    <div class="list-card js-card" draggable="true" >
+    <div class="list-card js-card" draggable="true" id="${this.id}" >
     <div class="list-card__title">${title}</div>
     <div class="list-card__info">${body}</div>
     <button class="list-card__button btnF" data-card-id="${this.id}">Отложить</button>

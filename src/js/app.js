@@ -1,6 +1,7 @@
 import "@sass/style.sass";
 import formUI from "./views/form";
 import favorite from "./views/favorite";
+import cardStore from "./store/cardStore";
 
 const container = document.querySelectorAll(".js-cell");
 const btnTask = document.querySelector(".js-task");
@@ -9,14 +10,17 @@ const btnComplete = document.querySelector(".js-complete");
 const counter = document.querySelector(".header-favorites__counter");
 const btnFavorite = document.querySelector(".header-favorites");
 const favoriteContainer = document.querySelector(".favorites");
+const wrapper = document.querySelector(".wrapper");
+const taskContainer = document.getElementById("taskC");
 
-const arrFavorites = localStorage.getItem("card");
-let count = JSON.parse(arrFavorites);
+// counter favorite task
+favorite.plusCounter();
+counter.textContent = favorite._counter;
 
 // events
+// click btn favorite
 btnFavorite.addEventListener("click", (e) => {
-  favoriteContainer.classList.toggle("active-favorites");
-  favorite.showTaskInFavorites();
+  clickFavoriteBtn();
 });
 
 // click btn task
@@ -71,6 +75,8 @@ function onBtnFavoriteCardClick(e) {
     const result = favorite.checkArrFavorites(id);
     if (result) {
       favorite.init(id);
+      favorite.showTaskInFavorites();
+      cardStore.deleteCardinArr(id, e);
     } else {
       console.log("Вы уже добавили этот билет");
       return;
@@ -93,4 +99,12 @@ function showForm(e, formName) {
   formUI.showForm(`${formName}`);
 }
 
-counter.textContent = count.length;
+// clcick favorite btn
+function clickFavoriteBtn(e) {
+  btnFavorite.classList.toggle("margin-r");
+  favoriteContainer.classList.toggle("active-favorites");
+  document.body.classList.toggle("width-hero");
+  wrapper.classList.toggle("right-wrapper");
+
+  favorite.showTaskInFavorites();
+}

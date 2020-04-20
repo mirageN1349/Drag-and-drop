@@ -1,112 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
+
+<head>
+
   <head>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>Tasker</title>
-    </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tasker</title>
   </head>
-  <body>
-    <header class="header">
-      <div class="header-block">
-        <div class="header-logo">
-          <img src="../src/img/fon3.svg" alt="" />
-        </div>
-        <div class="header-title">Tasker</div>
+</head>
+
+<body>
+  <div class="favorites js-cell" id="favoriteC">
+  </div>
+
+  <header class="header">
+    <div class="header-block">
+      <div class="header-logo">
+        <img src="../src/img/taskIcon.svg" alt="" />
       </div>
-
-      <!-- /.header-title -->
-      <button class="header-favorites">
-        <div class="header-favorites__text">Отложенные:</div>
-        <!-- /.header-favorites__text -->
-        <div class="header-favorites__counter">0</div>
-        <!-- /.header-favorites_counter -->
-      </button>
-      <!-- /.header-favorites -->
-    </header>
-    <!-- /.header -->
-
-    <div class="hero">
-      <div class="wrapper">
-        <section class="favorites js-cell" id="favoriteC">
-          <!-- <div class="favorites-card js-card" draggable="true">
-            <div class="favorites-card__title">${title}</div>
-            <div class="favorites-card__info">${body}</div>
-            <button class="favorites-card__button">Отложить</button>
-          </div> -->
-        </section>
-
-        <ul class="list">
-          <li class="list-caption">Задача</li>
-          <li class="list-caption">В процессе</li>
-          <li class="list-caption">Готово</li>
-
-          <li class="list-cell js-cell" id="taskC">
-            <button class="add-task btn js-task">Добавить задачу</button>
-            <form name="taskForm" class="form" id="task">
-              <input
-                type="text"
-                name="inputTitle"
-                class="form-title"
-                placeholder="Заголовок"
-              />
-
-              <textarea
-                type="text"
-                name="inputBody"
-                class="form-body"
-                placeholder="Задача"
-              ></textarea>
-              <button type="submit" class="form-btn">Создать задачу</button>
-            </form>
-          </li>
-
-          <li class="list-cell js-cell" id="progressC">
-            <button class="add-task btn js-progress">Добавить задачу</button>
-
-            <form name="progressForm" class="form" id="dev">
-              <input
-                type="text"
-                name="inputTitle"
-                class="form-title"
-                placeholder="Заголовок"
-              />
-              <textarea
-                type="text"
-                name="inputBody"
-                class="form-body"
-                placeholder="Задача"
-              ></textarea>
-              <button type="submit" class="form-btn">Создать задачу</button>
-            </form>
-          </li>
-
-          <li class="list-cell js-cell" id="completeC">
-            <button class="add-task btn js-complete">Добавить задачу</button>
-
-            <form name="activeForm" class="form" id="complete">
-              <input
-                type="text"
-                name="inputTitle"
-                class="form-title"
-                placeholder="Заголовок"
-              />
-              <textarea
-                type="text"
-                name="inputBody"
-                class="form-body"
-                placeholder="Задача"
-              ></textarea>
-              <button type="submit" class="form-btn">Создать задачу</button>
-            </form>
-          </li>
-        </ul>
-        <!-- /.list -->
-      </div>
-      <!-- /.wrapper -->
+      <div class="header-title">Tasker</div>
     </div>
-    <!-- /.hero -->
-  </body>
+
+    <!-- /.header-title -->
+    <button class="header-favorites">
+      <div class="header-favorites__text">Отложенные:</div>
+      <!-- /.header-favorites__text -->
+      <div class="header-favorites__counter">0</div>
+      <!-- /.header-favorites_counter -->
+    </button>
+    <!-- /.header-favorites -->
+  </header>
+  <!-- /.header -->
+
+  <div class="hero">
+
+    <div class="wrapper">
+      <ul class="list">
+        <li class="list-caption">Задача</li>
+        <li class="list-caption">В процессе</li>
+        <li class="list-caption">Готово</li>
+
+        <li class="list-cell js-cell" id="taskC">
+          <button class="add-task btn js-task">Добавить задачу</button>
+          <form name="taskForm" class="form" id="task">
+            <input type="text" name="inputTitle" class="form-title" placeholder="Заголовок" />
+
+            <textarea type="text" name="inputBody" class="form-body" placeholder="Задача"></textarea>
+            <button type="submit" class="form-btn">Создать задачу</button>
+          </form>
+        </li>
+
+        <li class="list-cell js-cell" id="progressC">
+          <button class="add-task btn js-progress">Добавить задачу</button>
+
+          <form name="progressForm" class="form" id="dev">
+            <input type="text" name="inputTitle" class="form-title" placeholder="Заголовок" />
+            <textarea type="text" name="inputBody" class="form-body" placeholder="Задача"></textarea>
+            <button type="submit" class="form-btn">Создать задачу</button>
+          </form>
+        </li>
+
+        <li class="list-cell js-cell" id="completeC">
+          <button class="add-task btn js-complete">Добавить задачу</button>
+
+          <form name="activeForm" class="form" id="complete">
+            <input type="text" name="inputTitle" class="form-title" placeholder="Заголовок" />
+            <textarea type="text" name="inputBody" class="form-body" placeholder="Задача"></textarea>
+            <button type="submit" class="form-btn">Создать задачу</button>
+          </form>
+        </li>
+      </ul>
+      <!-- /.list -->
+    </div>
+    <!-- /.wrapper -->
+  </div>
+  <!-- /.hero -->
+</body>
+
 </html>

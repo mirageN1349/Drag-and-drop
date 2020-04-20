@@ -1,9 +1,9 @@
 import favorite from "./favorite";
+import cardStore from "../store/cardStore";
 
 function dragAndDrop() {
   const container = document.querySelectorAll(".js-cell");
   const cards = document.querySelectorAll(".js-card");
-  const counter = document.querySelector(".header-favorites__counter");
   let card;
 
   // events
@@ -33,7 +33,7 @@ function dragAndDrop() {
 
   function dragOver(e) {
     e.preventDefault();
-    this.style = "min-height: 250px";
+    this.style = "min-height: 200px";
   }
 
   function dragEnter(e) {
@@ -41,29 +41,63 @@ function dragAndDrop() {
   }
 
   function dragLeave() {
-    this.style = "height: auto";
     if (this.id === "favoriteC") {
-      counter.textContent = JSON.parse(localStorage.getItem("card")).length;
-      const id = card.parents.getAttribute("data-card-id");
-      console.log(id);
-      favorite.deleteCardInObj(id);
+      // counter.textContent = JSON.parse(localStorage.getItem("card")).length;
+      return;
     }
+    this.style = "height: auto";
   }
 
   function dragDrop() {
     if (this.id === "progressC") {
       card.classList.remove("green");
       card.classList.add("red");
+      const id = card.id;
+      cardStore.findCardInArr(id, "progress");
+      this.style = "height: auto";
+
+      console.log("task:", cardStore.arrTask);
+      console.log("progress:", cardStore.arrProgress);
+      console.log("complete:", cardStore.arrComplete);
+      console.log("favorite:", JSON.parse(localStorage.getItem("arrCard")));
+      console.log(" ");
     }
     if (this.id === "completeC") {
       card.classList.remove("red");
       card.classList.add("green");
+      const id = card.id;
+      cardStore.findCardInArr(id, "complete");
+      this.style = "height: auto";
+
+      console.log("task:", cardStore.arrTask);
+      console.log("progress:", cardStore.arrProgress);
+      console.log("complete:", cardStore.arrComplete);
+      console.log("favorite:", JSON.parse(localStorage.getItem("arrCard")));
+      console.log(" ");
     }
     if (this.id === "taskC") {
       card.classList.remove("green");
       card.classList.remove("red");
-    }
+      const id = card.id;
+      cardStore.findCardInArr(id, "task");
+      this.style = "height: auto";
 
+      console.log("task:", cardStore.arrTask);
+      console.log("progress:", cardStore.arrProgress);
+      console.log("complete:", cardStore.arrComplete);
+      console.log("favorite:", JSON.parse(localStorage.getItem("arrCard")));
+      console.log(" ");
+    }
+    if (this.id === "favoriteC") {
+      const id = card.id;
+      cardStore.findCardInArr(id, "favorite");
+
+      console.log("task:", cardStore.arrTask);
+      console.log("progress:", cardStore.arrProgress);
+      console.log("complete:", cardStore.arrComplete);
+      console.log("favorite:", JSON.parse(localStorage.getItem("arrCard")));
+      console.log(" ");
+    }
     this.appendChild(card);
   }
 }
