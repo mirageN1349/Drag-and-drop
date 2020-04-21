@@ -79,7 +79,7 @@ class CardStore {
               id
             );
             cardStore.addArrFavorite(cardFavorite);
-            localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
+            // localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
             this.arrTask.splice(index, 1);
             break;
           default:
@@ -191,69 +191,69 @@ class CardStore {
       return;
     });
 
-    JSON.parse(localStorage.getItem("arrCard")).forEach((card, index) => {
-      let cardId = card.id.replace(/([0-9])\s+([^0-9])/g, "$1,$2").split("-");
-      if (cardId[1] === id) {
-        switch (arrName) {
-          case "task":
-            const cardTask = cardStore.transformCardInObj(
-              card.title,
-              card.body,
-              "task-",
-              id
-            );
-            console.log("cardTask", cardTask);
-            cardStore.addArrTask(cardTask);
-            this._arrFavorite.splice(index, 1);
-            localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
-            favorite.plusCounter();
-            this.counter.textContent = favorite._counter;
-            break;
-          case "progress":
-            const cardProgress = cardStore.transformCardInObj(
-              card.title,
-              card.body,
-              "progress-",
-              id
-            );
-            cardStore.addArrProgress(cardProgress);
-            this._arrFavorite.splice(index, 1);
-            localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
-            favorite.plusCounter();
-            this.counter.textContent = favorite._counter;
-            break;
-          case "complete":
-            const cardComplete = cardStore.transformCardInObj(
-              card.title,
-              card.body,
-              "complete-",
-              id
-            );
-            cardStore.addArrComplete(cardComplete);
-            this._arrFavorite.splice(index, 1);
-            localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
-            favorite.plusCounter();
-            this.counter.textContent = favorite._counter;
-            break;
-          case "favorite":
-            const cardFavorite = cardStore.transformCardInObj(
-              card.title,
-              card.body,
-              "favorite-",
-              id
-            );
-            cardStore.addArrFavorite(cardFavorite);
-            this._arrFavorite.splice(index, 1);
-            localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
-            favorite.plusCounter();
-            this.counter.textContent = favorite._counter;
-            break;
-          default:
-            break;
-        }
-      }
-      return;
-    });
+    // JSON.parse(localStorage.getItem("arrCard")).forEach((card, index) => {
+    //   let cardId = card.id.replace(/([0-9])\s+([^0-9])/g, "$1,$2").split("-");
+    //   if (cardId[1] === id) {
+    //     switch (arrName) {
+    //       case "task":
+    //         const cardTask = cardStore.transformCardInObj(
+    //           card.title,
+    //           card.body,
+    //           "task-",
+    //           id
+    //         );
+    //         console.log("cardTask", cardTask);
+    //         cardStore.addArrTask(cardTask);
+    //         this._arrFavorite.splice(index, 1);
+    //         localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
+    //         favorite.plusCounter();
+    //         this.counter.textContent = favorite._counter;
+    //         break;
+    //       case "progress":
+    //         const cardProgress = cardStore.transformCardInObj(
+    //           card.title,
+    //           card.body,
+    //           "progress-",
+    //           id
+    //         );
+    //         cardStore.addArrProgress(cardProgress);
+    //         this._arrFavorite.splice(index, 1);
+    //         localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
+    //         favorite.plusCounter();
+    //         this.counter.textContent = favorite._counter;
+    //         break;
+    //       case "complete":
+    //         const cardComplete = cardStore.transformCardInObj(
+    //           card.title,
+    //           card.body,
+    //           "complete-",
+    //           id
+    //         );
+    //         cardStore.addArrComplete(cardComplete);
+    //         this._arrFavorite.splice(index, 1);
+    //         localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
+    //         favorite.plusCounter();
+    //         this.counter.textContent = favorite._counter;
+    //         break;
+    //       case "favorite":
+    //         const cardFavorite = cardStore.transformCardInObj(
+    //           card.title,
+    //           card.body,
+    //           "favorite-",
+    //           id
+    //         );
+    //         cardStore.addArrFavorite(cardFavorite);
+    //         this._arrFavorite.splice(index, 1);
+    //         localStorage.setItem("arrCard", JSON.stringify(this._arrFavorite));
+    //         favorite.plusCounter();
+    //         this.counter.textContent = favorite._counter;
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   }
+    //   return;
+    // });
   }
 
   deleteCardinArr(id, e) {
